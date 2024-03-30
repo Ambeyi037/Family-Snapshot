@@ -1,0 +1,229 @@
+:root {
+  --site-color-01: #c13584;
+  --site-color-01-hover: #9f065d;
+}
+
+.person-header {
+  display: flex;
+  width: 100%;
+  top: 60px;
+  background-color: #ffffff;
+  color: black;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  gap: 30px;
+  height: 100px;
+  border-top: 2px solid grey;
+  border-bottom: 2px solid grey;
+  margin-bottom: 30px;
+}
+
+.person-content-wrapper {
+  display: flex;
+  width: 70%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-top: 150px;
+}
+
+.person-about {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+}
+
+img {
+  width: 80px;
+  border-radius: 50%;
+}
+
+.nuclear-family {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.nuclear-family-spouse {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 100%;
+  margin: 30px 0;
+}
+
+.nuclear-family-spouse-about {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: 20px auto;
+  align-items: center;
+  border-bottom: 2px solid brown;
+  border-radius: 3px;
+}
+
+.nuclear-family-spouse-about img {
+  width: 80px;
+  border-radius: 50%;
+}
+.nuclear-family-spouse-about p {
+  font-weight: 500;
+}
+
+.person-content-wrapper a {
+  font-size: 18px;
+  /* flex-basis: 100%; */
+  background-color: var(--site-color-01);
+  padding: 10px 20px;
+  width: fit-content;
+  align-self: center;
+  margin: 20px 0;
+  text-decoration: none;
+}
+
+.person-content-wrapper a:hover {
+  background-color: var(--site-color-01-hover);
+  cursor: pointer;
+}
+
+.nuclear-family-children {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: fit-content;
+}
+h2 {
+  align-self: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin: 20px auto;
+}
+
+.nuclear-family-child {
+  width: 95%;
+  display: flex;
+  border-bottom: 2px solid grey;
+  margin: 10px auto;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Parents and siblings */
+.extended-family {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.extended-family-parents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.extended-family-parents .parent {
+  display: flex;
+  height: fit-content;
+  border-bottom: 2px solid orange;
+}
+
+.sibling {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  width: 90%;
+  padding: 5px;
+  border-bottom: 2px solid orange;
+  margin: 30px 0;
+}
+
+img {
+  width: 80px;
+  border-radius: 50%;
+}
+.extended-family-siblings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin: 30px 0px;
+}
+
+.members-listing {
+  flex: 1;
+  margin-top: 30px;
+  display: flex;
+  /* background-color: #c13584; */
+  flex-direction: column;
+}
+
+.member-listed {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  width: 90%;
+  padding: 5px;
+  border-bottom: 2px solid orange;
+  margin: 30px 0;
+}
+
+.person-events-wrapper {
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+  height: fit-content;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.person-events {
+  display: flex;
+  width: 45%;
+  height: 200px;
+  align-items: center;
+  gap: 10%;
+  justify-content: center;
+}
+
+.person-events:nth-child(1) {
+  border-right: 2px solid orange;
+}
+
+.person-events-wrapper a {
+  font-size: 18px;
+  /* flex-basis: 100%; */
+  background-color: var(--site-color-01);
+  padding: 10px 20px;
+  width: fit-content;
+  align-self: center;
+  margin: 20px 0;
+  text-decoration: none;
+}
+
+.person-events-wrapper a:hover {
+  background-color: var(--site-color-01-hover);
+  cursor: pointer;
+}
+
+.separator {
+  width: 100%;
+  background-color: #c13584;
+}

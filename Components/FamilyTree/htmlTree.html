@@ -1,0 +1,198 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lineage Tree Visualization</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+      rect {
+        fill: white;
+        stroke: silver;
+        width: 80px;
+        height: 40px;
+        stroke-width: 2;
+      }
+      path {
+        fill: none;
+        stroke: orange;
+        stroke-width: 2;
+      }
+      text {
+        dominant-baseline: middle;
+        text-anchor: middle;
+      }
+      .bigger {
+        font-size: 20px;
+      }
+      .hide {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello world</h1>
+    <script>
+      var svg = d3
+        .select("body")
+        .append("svg")
+        .attr("width", window.innerWidth)
+        .attr("height", window.innerHeight)
+        .append("g")
+        .attr("transform", "translate(50,50)");
+      // CSV Data
+      var data1 = [
+        { child: "John", parent: "", spouse: "Isabella" },
+        { child: "Aaron", parent: "Kevin" },
+        { child: "Kevin", parent: "John", spouse: "Emma" },
+        { child: "Hannah", parent: "Ann", spouse: "Williams" },
+        { child: "Rose", parent: "Sarah" },
+        { child: "Ann", parent: "John", spouse: "George" },
+        { child: "Sarah", parent: "Kevin", spouse: "James" },
+        { child: "Mark", parent: "Ann" },
+        { child: "Angel", parent: "Sarah" },
+        { child: "Tom", parent: "Hannah" },
+      ];
+
+      var data2 = [
+        { child: "Washingtone", parent: "Rasto", spouse: "Judith" },
+        { child: "Owen", parent: "Rasto", spouse: "Phanice" },
+        { child: "Hudson", parent: "Rasto", spouse: "Namukhula" },
+        { child: "Nambaka", parent: "Rasto", spouse: "Tabitha" },
+        { child: "Clifford", parent: "Nambaka" },
+        { child: "Clintone", parent: "Washingtone" },
+        { child: "Rodricks", parent: "Washingtone" },
+        { child: "Purity", parent: "Washingtone" },
+        { child: "Patrick", parent: "Owen", spouse: "Aggy" },
+        { child: "Wellingtone", parent: "Owen", spouse: "Malvin" },
+        { child: "Queensly", parent: "Wellingtone" },
+        { child: "Omukofu", parent: "Hudson", spouse: "M.kale" },
+        { child: "Kale", parent: "Omukofu" },
+        { child: "Maxwell", parent: "Patrick" },
+        { child: "Rasto", parent: "", spouse: "Amukaya" },
+      ];
+      //   Convert to hierarchy
+      var dataStructure = d3
+        .stratify()
+        .id(function (d) {
+          return d.child;
+        })
+        .parentId(function (d) {
+          return d.parent;
+        })(data2);
+      console.log(data1);
+
+      var treeStructure = d3.tree().size([1000, 600]);
+      var information = treeStructure(dataStructure);
+      console.log(information.descendants());
+      console.log(information.links());
+
+      var connections1 = svg
+        .append("g")
+        .selectAll("path")
+        .data(information.links());
+      connections1
+        .enter()
+        .append("path")
+        .attr("d", function (d) {
+          return (
+            "M" +
+            (d.source.x - 20) +
+            "," +
+            d.source.y +
+            "h 60 v 50 H" +
+            d.target.x +
+            " V" +
+            d.target.y
+          );
+        });
+
+      var connections2 = svg
+        .append("g")
+        .selectAll("path")
+        .data(information.links());
+      connections2
+        .enter()
+        .append("path")
+        .attr("d", function (d) {
+          return "M" + (d.source.x + 40) + "," + d.source.y + "h 40";
+        });
+
+      var rectangles = svg
+        .append("g")
+        .selectAll("rect")
+        .data(information.descendants());
+
+      rectangles
+        .enter()
+        .append("rect")
+        .attr("x", function (d) {
+          return d.x - 60;
+        })
+        .attr("y", function (d) {
+          return d.y - 20;
+        });
+
+      var spouseRectangles = svg
+        .append("g")
+        .selectAll("rect")
+        .data(information.descendants());
+
+      spouseRectangles
+        .enter()
+        .append("rect")
+        .attr("x", function (d) {
+          return d.x + 60;
+        })
+        .attr("y", function (d) {
+          return d.y - 20;
+        })
+        .classed("hide", function (d) {
+          if (d.data.spouse == undefined) {
+            return true;
+          } else {
+            return false;
+          }
+          // d.data.spouse == undefined ? true :false;
+        });
+
+      var names = svg
+        .append("g")
+        .selectAll("text")
+        .data(information.descendants());
+
+      names
+        .enter()
+        .append("text")
+        .text(function (d) {
+          return d.data.child;
+        })
+        .attr("x", function (d) {
+          return d.x - 20;
+        })
+        .attr("y", function (d) {
+          return d.y;
+        })
+        .classed("bigger", true);
+
+      var spouseNames = svg
+        .append("g")
+        .selectAll("text")
+        .data(information.descendants());
+
+      spouseNames
+        .enter()
+        .append("text")
+        .text(function (d) {
+          return d.data.spouse;
+        })
+        .attr("x", function (d) {
+          return d.x + 100;
+        })
+        .attr("y", function (d) {
+          return d.y;
+        })
+        .classed("bigger", true);
+    </script>
+  </body>
+</html> -->
